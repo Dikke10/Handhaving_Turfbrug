@@ -1,0 +1,100 @@
+body {
+    display:flex;
+    flex-direction:column; 
+    
+    background-color:aliceblue;
+    font-size: large;
+}
+
+main {
+    flex: 1;
+}
+
+header {
+    background-color:aquamarine;
+    text-align: center; 
+}
+
+footer {
+    background-color: aquamarine;
+    color: black;
+    text-align: center;
+    padding: 20px;
+}
+
+.keuze {
+    background-color: bisque;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+   
+}   
+/* Om het element van de beslisboom op te maken */
+#beslisboom {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    border: 5px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    width: 400px;
+    margin: 0 auto;
+}
+
+#beslisboom p { /* p bevat de vragen van de beslisboom */
+    margin-bottom: 10px;
+}
+
+#beslisboom ul { /* ul is de unorganised list */
+    list-style-type: none;
+    padding: 0;
+}
+
+#beslisboom li { /* li is de organised list */
+    cursor: pointer;
+    padding: 8px;
+    background-color: #e0e0e0;
+    border-radius: 3px;
+    margin-bottom: 5px;
+}
+
+#beslisboom li:hover { /* li:hover stijlt het li element wanner je er met je muis over heen gaat */
+    background-color: #ccc;
+}
+
+ /* Stijl voor de informatieknop */
+ .info-button {
+    padding: 5px 10px;
+    background-color: #007bff; /* Blauwe achtergrondkleur */
+    color: #fff; /* Witte tekstkleur */
+    border: none; /* Geen rand */
+    border-radius: 4px; /* Afgeronde hoeken */
+    cursor: pointer; /* Wijzigen van de cursor bij zweven */
+}
+
+/* Stijl voor de container van vraagtekst, informatieknop en antwoordknoppen */
+.question-container {
+    display: flex; /* Gebruik flexbox voor uitlijning */
+    align-items: flex-start; /* Plaats items aan de linkerkant van de container */
+    margin-bottom: 10px; /* Ruimte onder elke vraag */
+}
+
+/* Stijl voor antwoordknoppen */
+.answer-button {
+    display: flex; 
+    align-items: column;
+    justify-content: center;
+    margin-top: 8px; /* Ruimte boven elke antwoordknop */
+    padding: 8px 16px;
+    background-color: aquamarine; /* Groene achtergrondkleur */
+    color: black; /* Witte tekstkleur */
+    border: solid; /* Geen rand */
+    border-radius: 4px; /* Afgeronde hoeken */
+    cursor: pointer; /* Wijzigen van de cursor bij zweven */
+}
+
+/* Stijl voor antwoordknoppen bij hover (zweven) */
+.answer-button:hover {
+    background-color: #218838; /* Donkerder groen bij zweven */
+}
+

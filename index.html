@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>beslisboom_Handhaving</title>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+    <header><h1>Handhaving</h1></header>
+    
+
+    <div id="beslisboom"></div>
+            
+    <script>
+       
+        // Definieer de beslisboom als een JavaScript-object
+        var beslisboom = {
+            vraag: "Vindt het evenement plaats buiten 7.00 en 23.00 uur?",
+            informatie: "Bla Bla",
+            antwoorden: {
+                nee: {
+                    vraag: "Heeft het evenement meer dan 75 bezoekers tegelijkertijd?",
+                    informatie: "Alb Alb",
+                    antwoorden: {
+                        ja: "Je moet een vergunning aanvragen voor het evenement bij de gemeente.",
+                        nee: {
+                            vraag: "Wordt er geluid geproduceerd van meer dan 80 decibel?",
+                            informatie: "Dit verwijst naar het verwachte geluidsniveau tijdens het evenement.",
+                            antwoorden: {
+                                ja: "Je moet een vergunning aanvragen voor het evenement bij de gemeente.",
+                                nee: {
+                                    vraag: "Vindt het evenement plaats op de weg?",
+                                    informatie: "Dit verwijst naar de locatie van het evenement.",
+                                    antwoorden: {
+                                        ja: "Je moet een vergunning aanvragen voor het evenement bij de gemeente.",
+                                        nee: {
+                                            vraag: "Wordt er vuurwerk afgestoken op het evenement?",
+                                            informatie: "Dit verwijst naar het gebruik van vuurwerk tijdens het evenement.",
+                                            antwoorden: {
+                                                ja: "Je moet een vergunning aanvragen voor het evenement bij de gemeente.",
+                                                nee: "Je moet twee weken voordat het evenement plaatsvindt een melding maken bij de gemeente."
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                ja: "Je moet een vergunning aanvragen voor het evenement bij de gemeente."
+            }
+        };
+
+        // Functie om de beslisboom weer te geven
+        function toonBeslisboom(beslisboom, element) {
+            // Voeg de vraag en informatieknop toe aan het element
+            var vraagContainer = document.createElement("div");
+            vraagContainer.className = "question-container";
+
+            var vraagElement = document.createElement("p");
+            vraagElement.textContent = beslisboom.vraag;
+
+            var informatieKnop = document.createElement("button");
+            informatieKnop.textContent = "ℹ️";
+            informatieKnop.className = "info-button";
+            informatieKnop.addEventListener("click", function() {
+                // Toon de specifieke informatie in een alertvenster
+                alert(beslisboom.informatie);
+            });
+
+            vraagContainer.appendChild(vraagElement);
+            vraagContainer.appendChild(informatieKnop);
+
+            // Voeg de vraagcontainer toe aan het element
+            element.appendChild(vraagContainer);
+
+            // Controleer of er antwoorden zijn
+            if (beslisboom.antwoorden) {
+                // Maak een lijst van antwoordopties
+                var antwoordElement = document.createElement("div"); // Gebruik een <div> voor antwoordknoppen
+                for (var antwoord in beslisboom.antwoorden) {
+                    // Maak een antwoordknop voor elk antwoord
+                    var antwoordKnop = document.createElement("button");
+                    antwoordKnop.textContent = antwoord;
+                    antwoordKnop.className = "answer-button";
+                    antwoordKnop.addEventListener("click", function(event) {
+                        // Verwijder de oude vraag en antwoordopties
+                        while (element.firstChild) {
+                            element.removeChild(element.firstChild);
+                        }
+                        // Toon de nieuwe vraag en antwoordopties op basis van de gebruikersinput
+                        var gekozenAntwoord = event.target.textContent;
+                        if (beslisboom.antwoorden[gekozenAntwoord] && typeof beslisboom.antwoorden[gekozenAntwoord] === "object") {
+                            toonBeslisboom(beslisboom.antwoorden[gekozenAntwoord], element);
+                        } else {
+                            var antwoordTekst = beslisboom.antwoorden[gekozenAntwoord];
+                            var antwoordTekstElement = document.createElement("p");
+                            antwoordTekstElement.textContent = antwoordTekst;
+                            element.appendChild(antwoordTekstElement);
+                        }
+                    });
+                    antwoordElement.appendChild(antwoordKnop);
+                }
+                // Voeg de lijst met antwoordknoppen toe aan het element
+                element.appendChild(antwoordElement);
+            }
+        }
+
+        // Haal het HTML-element op waarin de beslisboom moet worden weergegeven
+        var beslisboomElement = document.getElementById("beslisboom");
+        // Toon de beslisboom in het opgegeven element
+        toonBeslisboom(beslisboom, beslisboomElement);
+    </script>
+
+
+
+<footer>
+    <p>Footer</p>
+</footer>
+ 
+</body>
+</html>
