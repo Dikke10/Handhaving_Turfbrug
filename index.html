@@ -6,15 +6,26 @@
     <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
-    <header><h1>Handhaving</h1></header>
+
+    <header>
+        <p class ="language">English</p>
+        <div class="header-content">
+            <img src="LOGO/LOGO.1.png" id="logoHeader" alt="Logo Gemeente Turfbrug" />
+            <h1>BikeControl</h1>
+        </div>
+        <p>Fietshandhaving voor de Gemeente Turfbrug</p>
+    </header>
+
+    <div class="welkomsTekst">
+        <p id="welkomsTekst">-Hier komt de welkomstekst-</p>
+    </div>
     
 
-    <div id="beslisboom"></div>
-            
+    <div id="beslisboom"></div>  
     <script>
        
-        // Definieer de beslisboom als een JavaScript-object
-        var beslisboom = {
+      // Definieer de beslisboom als een JavaScript-object
+      var beslisboom = {
             vraag: "Vindt het evenement plaats buiten 7.00 en 23.00 uur?",
             informatie: "Bla Bla",
             antwoorden: {
@@ -25,7 +36,7 @@
                         ja: "Je moet een vergunning aanvragen voor het evenement bij de gemeente.",
                         nee: {
                             vraag: "Wordt er geluid geproduceerd van meer dan 80 decibel?",
-                            informatie: "Dit verwijst naar het verwachte geluidsniveau tijdens het evenement.",
+                            informatie: "Dit verwijst naa het verwachte geluidsniveau tijdens het evenement.",
                             antwoorden: {
                                 ja: "Je moet een vergunning aanvragen voor het evenement bij de gemeente.",
                                 nee: {
@@ -51,71 +62,79 @@
             }
         };
 
-        // Functie om de beslisboom weer te geven
-        function toonBeslisboom(beslisboom, element) {
-            // Voeg de vraag en informatieknop toe aan het element
-            var vraagContainer = document.createElement("div");
-            vraagContainer.className = "question-container";
+       // Functie om de beslisboom weer te geven
+function toonBeslisboom(beslisboom, element) {
+    // Voeg de vraag en informatieknop toe aan het element
+    var vraagContainer = document.createElement("div");
+    vraagContainer.className = "question-container";
 
-            var vraagElement = document.createElement("p");
-            vraagElement.textContent = beslisboom.vraag;
+    var vraagElement = document.createElement("p");
+    vraagElement.textContent = beslisboom.vraag;
 
-            var informatieKnop = document.createElement("button");
-            informatieKnop.textContent = "ℹ️";
-            informatieKnop.className = "info-button";
-            informatieKnop.addEventListener("click", function() {
-                // Toon de specifieke informatie in een alertvenster
-                alert(beslisboom.informatie);
-            });
+    var informatieKnop = document.createElement("button");
+    informatieKnop.textContent = "ℹ️";
+    informatieKnop.className = "info-button";
 
-            vraagContainer.appendChild(vraagElement);
-            vraagContainer.appendChild(informatieKnop);
+    // Maak een tooltip element
+    var tooltip = document.createElement("span");
+    tooltip.className = "tooltip";
+    tooltip.textContent = beslisboom.informatie;
 
-            // Voeg de vraagcontainer toe aan het element
-            element.appendChild(vraagContainer);
+    // Voeg de tooltip toe aan de informatieknop
+    informatieKnop.appendChild(tooltip);
 
-            // Controleer of er antwoorden zijn
-            if (beslisboom.antwoorden) {
-                // Maak een lijst van antwoordopties
-                var antwoordElement = document.createElement("div"); // Gebruik een <div> voor antwoordknoppen
-                for (var antwoord in beslisboom.antwoorden) {
-                    // Maak een antwoordknop voor elk antwoord
-                    var antwoordKnop = document.createElement("button");
-                    antwoordKnop.textContent = antwoord;
-                    antwoordKnop.className = "answer-button";
-                    antwoordKnop.addEventListener("click", function(event) {
-                        // Verwijder de oude vraag en antwoordopties
-                        while (element.firstChild) {
-                            element.removeChild(element.firstChild);
-                        }
-                        // Toon de nieuwe vraag en antwoordopties op basis van de gebruikersinput
-                        var gekozenAntwoord = event.target.textContent;
-                        if (beslisboom.antwoorden[gekozenAntwoord] && typeof beslisboom.antwoorden[gekozenAntwoord] === "object") {
-                            toonBeslisboom(beslisboom.antwoorden[gekozenAntwoord], element);
-                        } else {
-                            var antwoordTekst = beslisboom.antwoorden[gekozenAntwoord];
-                            var antwoordTekstElement = document.createElement("p");
-                            antwoordTekstElement.textContent = antwoordTekst;
-                            element.appendChild(antwoordTekstElement);
-                        }
-                    });
-                    antwoordElement.appendChild(antwoordKnop);
+    vraagContainer.appendChild(vraagElement);
+    vraagContainer.appendChild(informatieKnop);
+
+    // Voeg de vraagcontainer toe aan het element
+    element.appendChild(vraagContainer);
+
+    // Controleer of er antwoorden zijn
+    if (beslisboom.antwoorden) {
+        // Maak een container voor de antwoordknoppen
+        var antwoordContainer = document.createElement("div");
+        antwoordContainer.className = "answer-container"; // Voeg een class toe aan de container
+
+        for (var antwoord in beslisboom.antwoorden) {
+            // Maak een antwoordknop voor elk antwoord
+            var antwoordKnop = document.createElement("button");
+            antwoordKnop.textContent = antwoord;
+            antwoordKnop.className = "answer-button";
+            antwoordKnop.addEventListener("click", function(event) {
+                // Verwijder de oude vraag en antwoordopties
+                while (element.firstChild) {
+                    element.removeChild(element.firstChild);
                 }
-                // Voeg de lijst met antwoordknoppen toe aan het element
-                element.appendChild(antwoordElement);
-            }
+                // Toon de nieuwe vraag en antwoordopties op basis van de gebruikersinput
+                var gekozenAntwoord = event.target.textContent;
+                if (beslisboom.antwoorden[gekozenAntwoord] && typeof beslisboom.antwoorden[gekozenAntwoord] === "object") {
+                    toonBeslisboom(beslisboom.antwoorden[gekozenAntwoord], element);
+                } else {
+                    var antwoordTekst = beslisboom.antwoorden[gekozenAntwoord];
+                    var antwoordTekstElement = document.createElement("p");
+                    antwoordTekstElement.textContent = antwoordTekst;
+                    element.appendChild(antwoordTekstElement);
+                }
+            });
+            antwoordContainer.appendChild(antwoordKnop);
         }
+        // Voeg de container met antwoordknoppen toe aan het element
+        element.appendChild(antwoordContainer);
+    }
+}
 
-        // Haal het HTML-element op waarin de beslisboom moet worden weergegeven
-        var beslisboomElement = document.getElementById("beslisboom");
-        // Toon de beslisboom in het opgegeven element
-        toonBeslisboom(beslisboom, beslisboomElement);
+// Haal het HTML-element op waarin de beslisboom moet worden weergegeven
+var beslisboomElement = document.getElementById("beslisboom");
+// Toon de beslisboom in het opgegeven element
+toonBeslisboom(beslisboom, beslisboomElement);
     </script>
 
-
+<div class="Kaart">
+    <p>-Hier komt de kaart van Turfbrug- </p>
+</div>
 
 <footer>
-    <p>Footer</p>
+    <p>-Hier komen de contactgegevens-</p>
 </footer>
  
 </body>
