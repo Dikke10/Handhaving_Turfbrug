@@ -1,43 +1,106 @@
 body {
     display:flex;
     flex-direction:column; 
-    
-    background-color:aliceblue;
+    background-color: #F7F7F7;
     font-size: large;
+    font-family:serif;
+    height: 100vh; /* Zorg ervoor dat de body de volledige hoogte van het scherm vult */
+    margin: 0;
 }
 
 main {
     flex: 1;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+
 }
 
 header {
-    background-color:aquamarine;
-    text-align: center; 
+    background-color:  white;
+    position:relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: 20px; 
 }
 
 footer {
-    background-color: aquamarine;
+    background-color: #808080;
     color: black;
     text-align: center;
     padding: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+   
 }
 
-.keuze {
-    background-color: bisque;
-    display: flex;
-    justify-content: center;
+.language {
+    position: absolute;
+    top: 20px; 
+    right: 20px; 
+    margin:0;
+    text-decoration: underline;
+    color:#001dc3;
+}
+
+.header-content {
+    position: relative;
+    display:flex;
     align-items: center;
-    height: 300px;
-   
-}   
+    justify-content:center; 
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+#logoHeader {
+    width: 150px;
+    height: auto; 
+    position: absolute;
+    left: 100px;
+    top:50px;
+    transform: translateY(-50%);
+}
+
+header p {
+    margin: 0;
+    color: #09781d;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 40px;
+    color: #09781d;
+}
+
+header p:nth-child(3) {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+        /* Welkomstekst*/
+
+        #welkomsTekst {
+        width: 600px; 
+        
+        }
+        .welkomsTekst {
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height:150px;
+            text-align: center;
+        }
+ 
 /* Om het element van de beslisboom op te maken */
 #beslisboom {
-    font-family: Arial, sans-serif;
+    font-family: serif;
     padding: 20px;
-    border: 5px solid #ccc;
+    border: 5px solid #09781d;
     border-radius: 5px;
     background-color: #f9f9f9;
-    width: 400px;
+    width: 600px;
+    height:200px;
     margin: 0 auto;
 }
 
@@ -48,6 +111,9 @@ footer {
 #beslisboom ul { /* ul is de unorganised list */
     list-style-type: none;
     padding: 0;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
 }
 
 #beslisboom li { /* li is de organised list */
@@ -56,6 +122,9 @@ footer {
     background-color: #e0e0e0;
     border-radius: 3px;
     margin-bottom: 5px;
+    width: 100%; 
+    max-width: 200px; 
+    text-align: center; 
 }
 
 #beslisboom li:hover { /* li:hover stijlt het li element wanner je er met je muis over heen gaat */
@@ -70,31 +139,107 @@ footer {
     border: none; /* Geen rand */
     border-radius: 4px; /* Afgeronde hoeken */
     cursor: pointer; /* Wijzigen van de cursor bij zweven */
+    position: relative; /* Nodig voor de tooltip */
+    margin-left: 50px;
 }
 
-/* Stijl voor de container van vraagtekst, informatieknop en antwoordknoppen */
+        /* Stijl voor de tooltip */
+        .tooltip {
+            visibility: hidden; /* Verberg de tooltip standaard */
+            width: 200px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%; /* Plaats de tooltip boven de knop */
+            left: 50%;
+            margin-left: -100px;
+            opacity: 0; /* Start onzichtbaar */
+            transition: opacity 0.3s;
+        }
+
+        .tooltip::after {
+            content: "";
+            position: absolute;
+            top: 100%; /* Onderkant van de tooltip */
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #555 transparent transparent transparent;
+        }
+
+        .info-button:hover .tooltip {
+            visibility: visible;
+            opacity: 1; /* Maak de tooltip zichtbaar */
+        }
+
+/* Stijl voor de container van vraagtekst, informatieknop */
 .question-container {
-    display: flex; /* Gebruik flexbox voor uitlijning */
-    align-items: flex-start; /* Plaats items aan de linkerkant van de container */
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
     margin-bottom: 10px; /* Ruimte onder elke vraag */
+}
+
+.answer-container {
+    display: flex; 
+    justify-content: center; /* Centreer de knoppen horizontaal */
+    gap: 10px; /* Ruimte tussen de knoppen */
+    flex-wrap: wrap; /* Laat de knoppen op de volgende regel doorlopen als er geen ruimte meer is */
 }
 
 /* Stijl voor antwoordknoppen */
 .answer-button {
-    display: flex; 
-    align-items: column;
-    justify-content: center;
-    margin-top: 8px; /* Ruimte boven elke antwoordknop */
-    padding: 8px 16px;
-    background-color: aquamarine; /* Groene achtergrondkleur */
-    color: black; /* Witte tekstkleur */
-    border: solid; /* Geen rand */
-    border-radius: 4px; /* Afgeronde hoeken */
-    cursor: pointer; /* Wijzigen van de cursor bij zweven */
+  background-image: linear-gradient(#f7f8fa ,#e7e9ec);
+  border-color: #adb1b8 #a2a6ac #8d9096;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 3px;
+  box-shadow: rgba(255,255,255,.6) 0 1px 0 inset;
+  box-sizing: border-box;
+  color: #0f1111;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Amazon Ember",Arial,sans-serif;
+  font-size: 14px;
+  height: 29px;
+  font-size: 13px;
+  outline: 0;
+  overflow: hidden;
+  padding: 0 11px;
+  text-align: center;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  width: 50px;
 }
 
-/* Stijl voor antwoordknoppen bij hover (zweven) */
-.answer-button:hover {
-    background-color: #218838; /* Donkerder groen bij zweven */
-}
+        .answer-button:active {
+            border-bottom-color: #a2a6ac;
+        }
+        
+        .answer-button:active:hover {
+            border-bottom-color: #a2a6ac;
+        }
+        
+        .answer-button:hover {
+            border-color: #a2a6ac #979aa1 #82858a;
+        }
+        
+        .answer-button:focus {
+            border-color: #e77600;
+            box-shadow: rgba(228, 121, 17, .5) 0 0 3px 2px;
+            outline: 0;
+        }
 
+.Kaart {
+    text-align: center;
+    height:150px;
+}
