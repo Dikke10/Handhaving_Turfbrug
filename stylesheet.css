@@ -1,10 +1,15 @@
+html, body {
+    height:100%;
+    margin:0;
+}
+
 body {
     display:flex;
     flex-direction:column; 
     background-color: #F7F7F7;
     font-size: large;
     font-family:serif;
-    height: 100vh; /* Zorg ervoor dat de body de volledige hoogte van het scherm vult */
+    min-height: 100vh; /* Zorg ervoor dat de body de volledige hoogte van het scherm vult */
     margin: 0;
 }
 
@@ -32,7 +37,11 @@ footer {
     text-align: center;
     padding: 20px;
     font-family: Arial, Helvetica, sans-serif;
-   
+    flex-shrink: 0;
+}
+
+.contactgegevens {
+    flex:1;
 }
 
 .language {
@@ -79,19 +88,13 @@ header p:nth-child(3) {
 }
 
         /* Welkomstekst*/
-
-        #welkomsTekst {
-        width: 600px; 
-        
-        }
-        .welkomsTekst {
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            height:150px;
-            text-align: center;
-        }
- 
+.welkomsTekst {
+    padding: 16%;
+    padding-top: 2%;
+    padding-bottom: 1%;
+    text-align: center; 
+    
+}
 /* Om het element van de beslisboom op te maken */
 #beslisboom {
     font-family: serif;
@@ -243,3 +246,4 @@ header p:nth-child(3) {
     text-align: center;
     height:150px;
 }
+
