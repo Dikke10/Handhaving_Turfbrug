@@ -13,15 +13,23 @@
         </a>
         <div class="header-content">
             <img src="LOGO/LOGO.1.png" id="logoHeader" alt="Logo Gemeente Turfbrug" />
-            <h1>BikeControl</h1>
+            <h1>Fietshandhaving</h1>
         </div>
-        <p>Fietshandhaving voor de Gemeente Turfbrug</p>
+        <p>Beslisboom van de Gemeente Turfbrug</p>
     </header>
 
     <div class="welkomsTekst">
-        <p id="welkomsTekst">Deze beslisboom is bedoeld voor toezichthouders van de gemeente Turfbrug om te controleren of (brom)fietsen of gehandicaptvoertuigen goed geparkeerd staan. Als dat niet het geval is, helpt de beslisboom om te bepalen hoe u kunt handhaven.</p>
-        <p>In sommige gevallen sluit deze beslisboom niet aan en moet de toezichthouder zelf bepalen of een fiets gevaarlijk of hinderlijk geparkeerd is.</p>
-        <p>De beslisboom verwijst  naar de fietsverwijderapp en planningstool van het fietsdepot. Om deze beslisboom verder succesvol te gebruiken is het belangrijk om met deze apps bekend te zijn.</p>
+        <p id="welkomsTekst">
+            Deze beslisboom is bedoeld voor toezichthouders van de gemeente Turfbrug om te controleren of (brom)fietsen of gehandicaptenvoertuigen goed geparkeerd staan. Als dat niet het geval is, helpt de beslisboom om te bepalen hoe er gehandhaafd moet worden. <br>
+
+            In bepaalde gevallen sluit deze beslisboom niet aan op situaties in de praktijk en moet de toezichthouder zelf bepalen of een fiets gevaarlijk of hinderlijk geparkeerd staat.<br>
+
+            <div id="Welkom2">Overal waar het woord fiets staat, worden ook bromfietsen en gehandicaptenvoertuigen bedoeld.<br>
+
+            <br> De beslisboom verwijst  naar de app BikeControl en de planningstool van het fietsdepot. Om deze beslisboom verder succesvol te gebruiken is het belangrijk om met deze apps bekend te zijn.<br>
+
+           <br> Om de beslisboom opnieuw na te lopen, dient de site opnieuw geladen te worden.</div>
+        </p>
     </div>
     
 
@@ -30,66 +38,81 @@
         // Definieer de beslisboom als een JavaScript-object
         var beslisboom = {
             vraag: "1. Staat de fiets netjes in een fietsrek?", //1
-            informatie: "Info 1.",
+            informatie: "De fiets staat netjes als de fiets één parkeerplek in beslag neemt en rechtop staat in het rek.",
             antwoorden: {
                 nee: {
-                    vraag: "1.1 Heeft de fiets al een verwijderlabel 'hinder' ontvangen?", //1.1
-                    informatie: "Info 1.1",
+                    vraag: "1.1 Heeft de fiets al een verwijderlabel ontvangen?", //1.1
+                    informatie: "Als een fiets die hinderlijk geparkeerd staat moet er een verwijderlabel met 'hinder' aan het stuur worden gehangen om de eigenaar de gelegenheid te geven om de fiets zelf te verplaatsen.",
                     antwoorden: {
                         ja: {
-                            vraag: "1.2 Is er meer dan 1 uur verstreken sinds de verwijderlabel 'hinder' is opgelegd?", //1.2
-                            informatie: "De overtreder heeft een uur de tijd om de fiets te verplaatsen.",
+                            vraag: "1.2 Is er meer dan 1 uur verstreken sinds het verwijderlabel 'hinder' is opgelegd?", //1.2
+                            informatie: "Op het label zelf én in BikeControl staat de tijd waarop het label is aangebracht.",
                             antwoorden: {
-                                ja: "Gev.4. De fiets staat verkeerd en de verwijderlabel (hinder) hangt er al een uur. De fiets moet worden verwijderd. Fotografeer de fiets en registreer de foto met datum in de fietsverwijderapp. Noteer ook het merk en het type fiets in de app. In de fietsverwijderapp maak je een procesverbaal op. Indien nodig, slijp het fietsslot voorzichtig door en fotografeer de situatie. Zorg ervoor dat je zo min mogelijk schade veroorzaakt door de ketting zo dicht mogelijk bij het slot door te slijpen, zodat de rest van de ketting bruikbaar blijft. Controleer in de planningstool van het fietsdepot of er plek is. Mocht er geen plek, neem dan contact op met het fietsdepot of ze ruimte hebben.De fiets moet vervoerd worden naar het fietsdepot.",
-                                nee: "Gev. 6 De fiets staat verkeerd. Verwijderlabel (hinder) hangt er nog geen uur. Geef de eigenaar de mogelijkheid om de fiets te verplaatsen of verwijder de fiets na een uur.",
+                                ja:  {
+                                      vraag: "Gev.4 De fiets staat verkeerd en het verwijderlabel 'hinder' hangt er al een uur. De fiets moet worden verwijderd. ",
+                                      informatie: "Fotografeer de fiets en registreer de foto met datum in de BikeControl app. Noteer ook het merk en het type fiets in de app. In BikeControl maak je ook een proces-verbaal op. Als dat is gelukt slijp je het fietsslot voorzichtig door en fotografeer je de situatie. Controleer in de planningstool van het fietsdepot of zij plek voor een fiets hebben.  Mocht er geen plek meer zijn, neem dan contact op met het fietsdepot. Als er plek is dan moet de fiets worden vervoerd naar het fietsdepot.",
+                                       },
+                                nee: "Gev. 6 Het verwijderlabel met 'hinder' er op hangt nog geen uur aan het stuur van de fiets. Geef de eigenaar de mogelijkheid om de fiets te verplaatsen en verwijder de fiets na een uur.",
                             }
                         },
                         nee: {
                             vraag: "2.a Staat de fiets voor een nooduitgang of vluchtweg?", //2.a
-                            informatie: "Omdat de fiets bij een gevaarlijke situatie de vluchtweg blokkeert.",
+                            informatie: "Geen extra informatie beschikbaar.",
                             antwoorden: {
                                 ja: {
                                     vraag: "4. Kan de fiets over een korte afstand worden verplaatst?", //4
-                                    informatie: "Info 4",
+                                    informatie: "Dit kan als de fiets niet met een slot aan iets vast staat én op een plek geplaatst kan worden waar de eigenaar de fiets makkelijk terug kan vinden.",
                                     antwoorden: {
-                                        ja: "Gev. 2 De fiets staat verkeerd, maar kan worden verplaatst. De fiets moet worden verplaatst over korte afstand op een plek waar de eigenaar hem terug kan vinden.",
-                                        nee: "Gev.5 De fiets staat gevaarlijk en moet meteen worden verwijderd 1- De fiets krijgt een verwijderlabel met 'gevaarlijk' er op. 2- Fotografeer de fiets en registreer de foto met datum in de fietsverwijderapp. Noteer ook het merk en het type fiets in de app. 3- In de fietsverwijderapp maak je een procesverbaal op. 4- Indien nodig, slijp het fietsslot voorzichtig door en fotografeer de situatie. Zorg ervoor dat je zo min mogelijk schade veroorzaakt door de ketting zo dicht mogelijk bij het slot door te slijpen, zodat de rest van de ketting bruikbaar blijft.5- Controleer in de planningstool van het fietsdepot of er plek is. Mocht er geen plek, neem dan contact op met het fietsdepot of ze ruimte hebben voor een spoedgeval. 6- De fiets moet vervoerd worden naar het fietsdepot.",
+                                        ja: "Gev. 2  De fiets staat verkeerd, maar kan wel worden verplaatst. De fiets moet worden verplaatst over een korte afstand op een plek waar de eigenaar hem terug kan vinden.",
+                                        nee: {
+                                      vraag: "Gev.5 De fiets staat gevaarlijk geparkeerd en moet meteen worden verwijderd.  ",
+                                      informatie: "De fiets krijgt een verwijderlabel met 'gevaarlijk' er op aan het stuur. Fotografeer de fiets en registreer de foto met datum in de BikeControl app. Noteer ook het merk en het type fiets in de app. In BikeControl maak je ook een proces-verbaal op. Als dat is gelukt slijp je het fietsslot voorzichtig door en fotografeer je de situatie. Controleer in de planningstool van het fietsdepot of zij plek voor een fiets hebben. Mocht er geen plek meer zijn, neem dan contact op met het fietsdepot. Als er plek is dan moet de fiets worden vervoerd naar het fietsdepot.",
+                                       },
                                     }
                                 },
                                 nee: {
                                     vraag: "2.b Kun je door de plaatsing van de fiets een gebouw niet normaal betreden of verlaten?", //2.b
-                                    informatie: "Dit is gevaarlijk omdat de toegang de enige vluchtweg uit het gebouw kan zijn",
+                                    informatie: "Dit is gevaarlijk omdat dit de enige vluchtweg uit het gebouw kan zijn.",
                                     antwoorden: {
                                         ja: {
                                             vraag: "4. Kan de fiets over een korte afstand worden verplaatst?", //4
-                                            informatie: "Info 4",
+                                            informatie: "Dit kan als de fiets niet met een slot aan iets vast staat én op een plek geplaatst kan worden waar de eigenaar de fiets makkelijk terug kan vinden.",
                                             antwoorden: {
-                                                ja: "Gev. 2 De fiets staat verkeerd, maar kan worden verplaatst. De fiets moet worden verplaatst over korte afstand op een plek waar de eigenaar hem terug kan vinden.",
-                                                nee: "Gev.5  De fiets staat gevaarlijk en moet meteen worden verwijderd 1- De fiets krijgt een verwijderlabel met 'gevaarlijk' er op. 2- Fotografeer de fiets en registreer de foto met datum in de fietsverwijderapp. Noteer ook het merk en het type fiets in de app. 3- In de fietsverwijderapp maak je een procesverbaal op. 4- Indien nodig, slijp het fietsslot voorzichtig door en fotografeer de situatie. Zorg ervoor dat je zo min mogelijk schade veroorzaakt door de ketting zo dicht mogelijk bij het slot door te slijpen, zodat de rest van de ketting bruikbaar blijft.5- Controleer in de planningstool van het fietsdepot of er plek is. Mocht er geen plek, neem dan contact op met het fietsdepot of ze ruimte hebben voor een spoedgeval. 6- De fiets moet vervoerd worden naar het fietsdepot.",
+                                                ja: "Gev. 2  De fiets staat verkeerd, maar kan wel worden verplaatst. De fiets moet worden verplaatst over een korte afstand op een plek waar de eigenaar hem terug kan vinden.",
+                                                nee:  {
+                                      vraag: "Gev.5 De fiets staat gevaarlijk geparkeerd en moet meteen worden verwijderd.  ",
+                                      informatie: "De fiets krijgt een verwijderlabel met 'gevaarlijk' er op aan het stuur. Fotografeer de fiets en registreer de foto met datum in de BikeControl app. Noteer ook het merk en het type fiets in de app. In BikeControl maak je ook een proces-verbaal op. Als dat is gelukt slijp je het fietsslot voorzichtig door en fotografeer je de situatie. Controleer in de planningstool van het fietsdepot of zij plek voor een fiets hebben. Mocht er geen plek meer zijn, neem dan contact op met het fietsdepot. Als er plek is dan moet de fiets worden vervoerd naar het fietsdepot.",
+                                       },
                                             }
                                         },
                                         nee: {
                                             vraag: "2.c Belemmert de plaatsing van de fiets een brandkraan of droge blusleiding?", //2.c
-                                            informatie: "Info 2.c.",
+                                            informatie: "Een droge blusleiding is een stalen pijp waaraan een brandweerslang vastgemaakt kan worden.",
                                             antwoorden: {
                                                 ja: {
                                                     vraag: "4. Kan de fiets over een korte afstand worden verplaatst?", //4
-                                                    informatie: "Info 4",
+                                                    informatie: "Dit kan als de fiets niet met een slot aan iets vast staat én op een plek geplaatst kan worden waar de eigenaar de fiets makkelijk terug kan vinden.",
                                                     antwoorden: {
-                                                        ja: "Gev. 2 De fiets staat verkeerd, maar kan worden verplaatst. De fiets moet worden verplaatst over korte afstand op een plek waar de eigenaar hem terug kan vinden.",
-                                                        nee: "Gev.5  De fiets staat gevaarlijk en moet meteen worden verwijderd 1- De fiets krijgt een verwijderlabel met 'gevaarlijk' er op. 2- Fotografeer de fiets en registreer de foto met datum in de fietsverwijderapp. Noteer ook het merk en het type fiets in de app. 3- In de fietsverwijderapp maak je een procesverbaal op. 4- Indien nodig, slijp het fietsslot voorzichtig door en fotografeer de situatie. Zorg ervoor dat je zo min mogelijk schade veroorzaakt door de ketting zo dicht mogelijk bij het slot door te slijpen, zodat de rest van de ketting bruikbaar blijft.5- Controleer in de planningstool van het fietsdepot of er plek is. Mocht er geen plek, neem dan contact op met het fietsdepot of ze ruimte hebben voor een spoedgeval. 6- De fiets moet vervoerd worden naar het fietsdepot.",
+                                                        ja: "Gev. 2  De fiets staat verkeerd, maar kan wel worden verplaatst. De fiets moet worden verplaatst over een korte afstand op een plek waar de eigenaar hem terug kan vinden.",
+                                                        nee:  {
+                                      vraag: "Gev.5 De fiets staat gevaarlijk geparkeerd en moet meteen worden verwijderd.  ",
+                                      informatie: "De fiets krijgt een verwijderlabel met 'gevaarlijk' er op aan het stuur. Fotografeer de fiets en registreer de foto met datum in de BikeControl app. Noteer ook het merk en het type fiets in de app. In BikeControl maak je ook een proces-verbaal op. Als dat is gelukt slijp je het fietsslot voorzichtig door en fotografeer je de situatie. Controleer in de planningstool van het fietsdepot of zij plek voor een fiets hebben. Mocht er geen plek meer zijn, neem dan contact op met het fietsdepot. Als er plek is dan moet de fiets worden vervoerd naar het fietsdepot.",
+                                       },
                                                     }
                                                 },
                                                 nee: {
                                                     vraag: "2.d Blokkeert de fiets de noodkast of nooduitgang van de metro?", //2.d
-                                                    informatie: "Info 2.d.",
+                                                    informatie: "Geen extra informatie beschikbaar.",
                                                     antwoorden: {
                                                         ja: {
                                                             vraag: "4. Kan de fiets over een korte afstand worden verplaatst?", //4
-                                                            informatie: "Info 4",
+                                                            informatie: "Dit kan als de fiets niet met een slot aan iets vast staat én op een plek geplaatst kan worden waar de eigenaar de fiets makkelijk terug kan vinden.",
                                                             antwoorden: {
-                                                                ja: "Gev. 2 De fiets staat verkeerd, maar kan worden verplaatst. De fiets moet worden verplaatst over korte afstand op een plek waar de eigenaar hem terug kan vinden.",
-                                                                nee: "Gev.5  De fiets staat gevaarlijk en moet meteen worden verwijderd 1- De fiets krijgt een verwijderlabel met 'gevaarlijk' er op. 2- Fotografeer de fiets en registreer de foto met datum in de fietsverwijderapp. Noteer ook het merk en het type fiets in de app. 3- In de fietsverwijderapp maak je een procesverbaal op. 4- Indien nodig, slijp het fietsslot voorzichtig door en fotografeer de situatie. Zorg ervoor dat je zo min mogelijk schade veroorzaakt door de ketting zo dicht mogelijk bij het slot door te slijpen, zodat de rest van de ketting bruikbaar blijft.5- Controleer in de planningstool van het fietsdepot of er plek is. Mocht er geen plek, neem dan contact op met het fietsdepot of ze ruimte hebben voor een spoedgeval. 6- De fiets moet vervoerd worden naar het fietsdepot.",
+                                                                ja: "Gev. 2 De fiets staat verkeerd, maar kan wel worden verplaatst. De fiets moet worden verplaatst over een korte afstand op een plek waar de eigenaar hem terug kan vinden.",
+                                                                nee:  {
+                                      vraag: "Gev.5 De fiets staat gevaarlijk geparkeerd en moet meteen worden verwijderd.  ",
+                                      informatie: "De fiets krijgt een verwijderlabel met 'gevaarlijk' er op aan het stuur. Fotografeer de fiets en registreer de foto met datum in de BikeControl app. Noteer ook het merk en het type fiets in de app. In BikeControl maak je ook een proces-verbaal op. Als dat is gelukt slijp je het fietsslot voorzichtig door en fotografeer je de situatie. Controleer in de planningstool van het fietsdepot of zij plek voor een fiets hebben. Mocht er geen plek meer zijn, neem dan contact op met het fietsdepot. Als er plek is dan moet de fiets worden vervoerd naar het fietsdepot.",
+                                       },
                                                             }
                                                         },
                                                         nee: {
@@ -98,121 +121,137 @@
                                                             antwoorden: {
                                                                 ja: {
                                                                     vraag: "4. Kan de fiets over een korte afstand worden verplaatst?", //4
-                                                                    informatie: "Info 4",
+                                                                    informatie: "Dit kan als de fiets niet met een slot aan iets vast staat én op een plek geplaatst kan worden waar de eigenaar de fiets makkelijk terug kan vinden.",
                                                                     antwoorden: {
-                                                                        ja: "Gev. 2 De fiets staat verkeerd, maar kan worden verplaatst. De fiets moet worden verplaatst over korte afstand op een plek waar de eigenaar hem terug kan vinden.",
-                                                                        nee: "Gev.5  De fiets staat gevaarlijk en moet meteen worden verwijderd 1- De fiets krijgt een verwijderlabel met 'gevaarlijk' er op. 2- Fotografeer de fiets en registreer de foto met datum in de fietsverwijderapp. Noteer ook het merk en het type fiets in de app. 3- In de fietsverwijderapp maak je een procesverbaal op. 4- Indien nodig, slijp het fietsslot voorzichtig door en fotografeer de situatie. Zorg ervoor dat je zo min mogelijk schade veroorzaakt door de ketting zo dicht mogelijk bij het slot door te slijpen, zodat de rest van de ketting bruikbaar blijft.5- Controleer in de planningstool van het fietsdepot of er plek is. Mocht er geen plek, neem dan contact op met het fietsdepot of ze ruimte hebben voor een spoedgeval. 6- De fiets moet vervoerd worden naar het fietsdepot.",
+                                                                        ja: "Gev. 2 De fiets staat verkeerd, maar kan wel worden verplaatst. De fiets moet worden verplaatst over een korte afstand op een plek waar de eigenaar hem terug kan vinden.",
+                                                                        nee:  {
+                                      vraag: "Gev.5 De fiets staat gevaarlijk geparkeerd en moet meteen worden verwijderd.  ",
+                                      informatie: "De fiets krijgt een verwijderlabel met 'gevaarlijk' er op aan het stuur. Fotografeer de fiets en registreer de foto met datum in de BikeControl app. Noteer ook het merk en het type fiets in de app. In BikeControl maak je ook een proces-verbaal op. Als dat is gelukt slijp je het fietsslot voorzichtig door en fotografeer je de situatie. Controleer in de planningstool van het fietsdepot of zij plek voor een fiets hebben. Mocht er geen plek meer zijn, neem dan contact op met het fietsdepot. Als er plek is dan moet de fiets worden vervoerd naar het fietsdepot.",
+                                       },
                                                                     }
                                                                 },
                                                                 nee: {
                                                                     vraag: "art. 4.27 lid 1 c) Belemmert de fiets het zicht van het verkeer?", //art. 4.27 lid 1 c)
-                                                                    informatie: "Info art. 4.27 lid 1 c)",
+                                                                    informatie: "Geen extra informatie beschikbaar.",
                                                                     antwoorden: {
                                                                         ja: {
                                                                             vraag: "4. Kan de fiets over een korte afstand worden verplaatst?", //4
-                                                                            informatie: "Info 4",
+                                                                            informatie: "Dit kan als de fiets niet met een slot aan iets vast staat én op een plek geplaatst kan worden waar de eigenaar de fiets makkelijk terug kan vinden.",
                                                                             antwoorden: {
-                                                                                ja: "Gev. 2 De fiets staat verkeerd, maar kan worden verplaatst. De fiets moet worden verplaatst over korte afstand op een plek waar de eigenaar hem terug kan vinden.",
-                                                                                nee: "Gev.5  De fiets staat gevaarlijk en moet meteen worden verwijderd 1- De fiets krijgt een verwijderlabel met 'gevaarlijk' er op. 2- Fotografeer de fiets en registreer de foto met datum in de fietsverwijderapp. Noteer ook het merk en het type fiets in de app. 3- In de fietsverwijderapp maak je een procesverbaal op. 4- Indien nodig, slijp het fietsslot voorzichtig door en fotografeer de situatie. Zorg ervoor dat je zo min mogelijk schade veroorzaakt door de ketting zo dicht mogelijk bij het slot door te slijpen, zodat de rest van de ketting bruikbaar blijft.5- Controleer in de planningstool van het fietsdepot of er plek is. Mocht er geen plek, neem dan contact op met het fietsdepot of ze ruimte hebben voor een spoedgeval. 6- De fiets moet vervoerd worden naar het fietsdepot.",
+                                                                                ja: "Gev. 2  De fiets staat verkeerd, maar kan wel worden verplaatst. De fiets moet worden verplaatst over een korte afstand op een plek waar de eigenaar hem terug kan vinden.",
+                                                                                nee:  {
+                                      vraag: "Gev.5 De fiets staat gevaarlijk geparkeerd en moet meteen worden verwijderd.  ",
+                                      informatie: "De fiets krijgt een verwijderlabel met 'gevaarlijk' er op aan het stuur. Fotografeer de fiets en registreer de foto met datum in de BikeControl app. Noteer ook het merk en het type fiets in de app. In BikeControl maak je ook een proces-verbaal op. Als dat is gelukt slijp je het fietsslot voorzichtig door en fotografeer je de situatie. Controleer in de planningstool van het fietsdepot of zij plek voor een fiets hebben. Mocht er geen plek meer zijn, neem dan contact op met het fietsdepot. Als er plek is dan moet de fiets worden vervoerd naar het fietsdepot.",
+                                       },
                                                                             }
                                                                         },
                                                                         nee: {
                                                                             vraag: "art. 4.27 lid 3 en 4 APV Staat de fiets binnen het NS stationsgebied of op het Turfteplein?", //art. 4.27 lid 3 en 4 APV
-                                                                            informatie: "Info art. 4.27 lid 3 en 4 APV",
+                                                                            informatie: "Zie Kaart",
                                                                             antwoorden: {
                                                                                 ja: {
                                                                                     vraag: "4. Kan de fiets over een korte afstand worden verplaatst?", //4
-                                                                                    informatie: "Info 4",
+                                                                                    informatie: "Dit kan als de fiets niet met een slot aan iets vast staat én op een plek geplaatst kan worden waar de eigenaar de fiets makkelijk terug kan vinden.",
                                                                                     antwoorden: {
-                                                                                        ja: "Gev. 2 De fiets staat verkeerd, maar kan worden verplaatst. De fiets moet worden verplaatst over korte afstand op een plek waar de eigenaar hem terug kan vinden.",
-                                                                                        nee: "Gev.3 De fiets staat hinderlijk geparkeerd. De fiets krijgt een verwijderlabel met 'hinderlijk' erop. 'Op de verwijderlabel moet staan fiets geparkeerd buiten de parkeervoorzieningen'. Het vermeld de eindtijd, wanneer de fiets weggehaald moet worden (in uren en minuten) en de datum. Breng de verwijderlabel 'hinder' aan op het stuur.",
+                                                                                        ja: "Gev. 2  De fiets staat verkeerd, maar kan wel worden verplaatst. De fiets moet worden verplaatst over een korte afstand op een plek waar de eigenaar hem terug kan vinden.",
+                                                                                        nee:  {
+                                                                                            vraag: "Gev.3 De fiets staat hinderlijk geparkeerd, de overtreder krijgt één uur de tijd om de fiets te verplaatsen.",
+                                                                                            informatie: "Op het verwijderlabel moet staan 'fiets geparkeerd buiten de parkeervoorzieningen'. Het vermeld de eindtijd, het tijdstip en de datum wanneer de fiets weggehaald moet worden. Het label moet aan het stuur van de fiets worden gehangen.",
+                                                                                        } 
                                                                                     }
                                                                                 },
                                                                                 nee: {
                                                                                     vraag: "art. 4.2 APV-1 Is de fiets vastgemaakt aan een boom?", //art. 4.2 APV-1
-                                                                                    informatie: "Info art. 4.2 APV-1",
+                                                                                    informatie: "Geen extra informatie beschikbaar.",
                                                                                     antwoorden: {
-                                                                                        ja: {
-                                                                                            vraag: "4. Kan de fiets over een korte afstand worden verplaatst?", //4
-                                                                                            informatie: "Info 4",
-                                                                                            antwoorden: {
-                                                                                                ja: "Gev. 2 De fiets staat verkeerd, maar kan worden verplaatst. De fiets moet worden verplaatst over korte afstand op een plek waar de eigenaar hem terug kan vinden.",
-                                                                                                nee: "Gev.3 De fiets staat hinderlijk geparkeerd. De fiets krijgt een verwijderlabel met 'hinderlijk' erop. 'Op de verwijderlabel moet staan fiets geparkeerd buiten de parkeervoorzieningen'. Het vermeld de eindtijd, wanneer de fiets weggehaald moet worden (in uren en minuten) en de datum. Breng de verwijderlabel 'hinder' aan op het stuur.",
-                                                                                            }
+                                                                                        ja:  {
+                                                                                            vraag: "Gev.3 De fiets staat hinderlijk geparkeerd, de overtreder krijgt één uur de tijd om de fiets te verplaatsen.",
+                                                                                            informatie: "Op het verwijderlabel moet staan 'fiets geparkeerd buiten de parkeervoorzieningen'. Het vermeld de eindtijd, het tijdstip en de datum wanneer de fiets weggehaald moet worden. Het label moet aan het stuur van de fiets worden gehangen.",
                                                                                         },
-                                                                                        nee: {
+                                                                                        nee: { 
                                                                                             vraag: "art. 4.2 APV-2 Is de fiets vastgemaakt aan een object die gebruikt wordt door de openbare dienst?", //art. 4.2 APV-2
-                                                                                            informatie: "Info art. 4.2 APV-2",
+                                                                                            informatie: " Bijv. een stoplicht, een elektriciteitsvoorziening etc.",
                                                                                             antwoorden: {
                                                                                                 ja: {
-                                                                                                    vraag: "4. Kan de fiets over een korte afstand worden verplaatst?", //4
-                                                                                                    informatie: "Info 4",
-                                                                                                    antwoorden: {
-                                                                                                        ja: "Gev. 2 De fiets staat verkeerd, maar kan worden verplaatst. De fiets moet worden verplaatst over korte afstand op een plek waar de eigenaar hem terug kan vinden.",
-                                                                                                        nee: "Gev.3 De fiets staat hinderlijk geparkeerd. De fiets krijgt een verwijderlabel met 'hinderlijk' erop. 'Op de verwijderlabel moet staan fiets geparkeerd buiten de parkeervoorzieningen'. Het vermeld de eindtijd, wanneer de fiets weggehaald moet worden (in uren en minuten) en de datum. Breng de verwijderlabel 'hinder' aan op het stuur.",
-                                                                                                    }
-                                                                                                },
+                                                                                                    vraag: "Gev.3 De fiets staat hinderlijk geparkeerd, de overtreder krijgt één uur de tijd om de fiets te verplaatsen.",
+                                                                                                    informatie: "Op het verwijderlabel moet staan 'fiets geparkeerd buiten de parkeervoorzieningen'. Het vermeld de eindtijd, het tijdstip en de datum wanneer de fiets weggehaald moet worden. Het label moet aan het stuur van de fiets worden gehangen.",
+                                                                                        }, 
                                                                                                 nee: {
                                                                                                     vraag: "3.a Staat de fiets verkeerd in een rek of vak waardoor andere mensen daar last van hebben?", //3.a
-                                                                                                    informatie: "Info 3.a",
+                                                                                                    informatie: "Geen extra informatie beschikbaar.",
                                                                                                     antwoorden: {
                                                                                                         ja: {
                                                                                                             vraag: "4. Kan de fiets over een korte afstand worden verplaatst?", //4
-                                                                                                            informatie: "Info 4",
+                                                                                                            informatie: "Dit kan als de fiets niet met een slot aan iets vast staat én op een plek geplaatst kan worden waar de eigenaar de fiets makkelijk terug kan vinden.",
                                                                                                             antwoorden: {
-                                                                                                                ja: "Gev. 2 De fiets staat verkeerd, maar kan worden verplaatst. De fiets moet worden verplaatst over korte afstand op een plek waar de eigenaar hem terug kan vinden.",
-                                                                                                                nee: "Gev.3 De fiets staat hinderlijk geparkeerd. De fiets krijgt een verwijderlabel met 'hinderlijk' erop. 'Op de verwijderlabel moet staan fiets geparkeerd buiten de parkeervoorzieningen'. Het vermeld de eindtijd, wanneer de fiets weggehaald moet worden (in uren en minuten) en de datum. Breng de verwijderlabel 'hinder' aan op het stuur.",
+                                                                                                                ja: "Gev. 2  De fiets staat verkeerd, maar kan wel worden verplaatst. De fiets moet worden verplaatst over een korte afstand op een plek waar de eigenaar hem terug kan vinden.",
+                                                                                                                nee: {
+                                                                                            vraag: "Gev.3 De fiets staat hinderlijk geparkeerd, de overtreder krijgt één uur de tijd om de fiets te verplaatsen.",
+                                                                                            informatie: "Op het verwijderlabel moet staan 'fiets geparkeerd buiten de parkeervoorzieningen'. Het vermeld de eindtijd, het tijdstip en de datum wanneer de fiets weggehaald moet worden. Het label moet aan het stuur van de fiets worden gehangen.",
+                                                                                        } 
                                                                                                             }
                                                                                                         },
                                                                                                         nee: {
                                                                                                             vraag: "3.b Staat de fiets wel in een rek of vak, maar wordt de doorstroom van het verkeer gehinderd?", //3.b
-                                                                                                            informatie: "Info 3.b",
+                                                                                                            informatie: "Geen extra informatie beschikbaar.",
                                                                                                             antwoorden: {
                                                                                                                 ja: {
                                                                                                                     vraag: "4. Kan de fiets over een korte afstand worden verplaatst?", //4
-                                                                                                                    informatie: "Info 4",
+                                                                                                                    informatie: "Dit kan als de fiets niet met een slot aan iets vast staat én op een plek geplaatst kan worden waar de eigenaar de fiets makkelijk terug kan vinden.",
                                                                                                                     antwoorden: {
-                                                                                                                        ja: "Gev. 2 De fiets staat verkeerd, maar kan worden verplaatst. De fiets moet worden verplaatst over korte afstand op een plek waar de eigenaar hem terug kan vinden.",
-                                                                                                                        nee: "Gev.3 De fiets staat hinderlijk geparkeerd. De fiets krijgt een verwijderlabel met 'hinderlijk' erop. 'Op de verwijderlabel moet staan fiets geparkeerd buiten de parkeervoorzieningen'. Het vermeld de eindtijd, wanneer de fiets weggehaald moet worden (in uren en minuten) en de datum. Breng de verwijderlabel 'hinder' aan op het stuur.",
+                                                                                                                        ja: "Gev. 2  De fiets staat verkeerd, maar kan wel worden verplaatst. De fiets moet worden verplaatst over een korte afstand op een plek waar de eigenaar hem terug kan vinden.",
+                                                                                                                        nee: {
+                                                                                            vraag: "Gev.3 De fiets staat hinderlijk geparkeerd, de overtreder krijgt één uur de tijd om de fiets te verplaatsen.",
+                                                                                            informatie: "Op het verwijderlabel moet staan 'fiets geparkeerd buiten de parkeervoorzieningen'. Het vermeld de eindtijd, het tijdstip en de datum wanneer de fiets weggehaald moet worden. Het label moet aan het stuur van de fiets worden gehangen.",
+                                                                                        } 
                                                                                                                     }
                                                                                                                 },
                                                                                                                 nee: {
-                                                                                                                    vraag: "3.c Maakt de fiets het moeilijk om bij het volgende te komen? bij een brievenbus, winkelgeldautomaat, afvalbak of afvalinzamelingspunt", //3.c
-                                                                                                                    informatie: "Info 3.c",
+                                                                                                                    vraag: "3.c Maakt de fiets het moeilijk om bij een openbare voorziening te komen? Denk hierbij ook aan mindervaliden", //3.c
+                                                                                                                    informatie: "Bijv. bij een brievenbus, winkel , geldautomaat, afvalbak of afvalinzamelingspunt.",
                                                                                                                     antwoorden: {
                                                                                                                         ja: {
                                                                                                                             vraag: "4. Kan de fiets over een korte afstand worden verplaatst?", //4
-                                                                                                                            informatie: "Info 4",
+                                                                                                                            informatie: "Dit kan als de fiets niet met een slot aan iets vast staat én op een plek geplaatst kan worden waar de eigenaar de fiets makkelijk terug kan vinden.",
                                                                                                                             antwoorden: {
-                                                                                                                                ja: "Gev. 2 De fiets staat verkeerd, maar kan worden verplaatst. De fiets moet worden verplaatst over korte afstand op een plek waar de eigenaar hem terug kan vinden.",
-                                                                                                                                nee: "Gev.3 De fiets staat hinderlijk geparkeerd. De fiets krijgt een verwijderlabel met 'hinderlijk' erop. 'Op de verwijderlabel moet staan fiets geparkeerd buiten de parkeervoorzieningen'. Het vermeld de eindtijd, wanneer de fiets weggehaald moet worden (in uren en minuten) en de datum. Breng de verwijderlabel 'hinder' aan op het stuur.",
+                                                                                                                                ja: "Gev. 2  De fiets staat verkeerd, maar kan wel worden verplaatst. De fiets moet worden verplaatst over een korte afstand op een plek waar de eigenaar hem terug kan vinden.",
+                                                                                                                                nee: {
+                                                                                            vraag: "Gev.3 De fiets staat hinderlijk geparkeerd, de overtreder krijgt één uur de tijd om de fiets te verplaatsen.",
+                                                                                            informatie: "Op het verwijderlabel moet staan 'fiets geparkeerd buiten de parkeervoorzieningen'. Het vermeld de eindtijd, het tijdstip en de datum wanneer de fiets weggehaald moet worden. Het label moet aan het stuur van de fiets worden gehangen.",
+                                                                                        } 
                                                                                                                             }
                                                                                                                         },
                                                                                                                         nee: {
                                                                                                                             vraag: "3.d Belemmert de fiets de doorgang of het uitzicht voor de gebruikers van een gebouw?", //3.d
-                                                                                                                            informatie: "Info 3.d",
+                                                                                                                            informatie: "Geen extra informatie beschikbaar.",
                                                                                                                             antwoorden: {
                                                                                                                                 ja: {
                                                                                                                                     vraag: "4. Kan de fiets over een korte afstand worden verplaatst?", //4
-                                                                                                                                    informatie: "Info 4",
+                                                                                                                                    informatie: "Dit kan als de fiets niet met een slot aan iets vast staat én op een plek geplaatst kan worden waar de eigenaar de fiets makkelijk terug kan vinden.",
                                                                                                                                     antwoorden: {
-                                                                                                                                        ja: "Gev. 2 De fiets staat verkeerd, maar kan worden verplaatst. De fiets moet worden verplaatst over korte afstand op een plek waar de eigenaar hem terug kan vinden.",
-                                                                                                                                        nee: "Gev.3 De fiets staat hinderlijk geparkeerd. De fiets krijgt een verwijderlabel met 'hinderlijk' erop. 'Op de verwijderlabel moet staan fiets geparkeerd buiten de parkeervoorzieningen'. Het vermeld de eindtijd, wanneer de fiets weggehaald moet worden (in uren en minuten) en de datum. Breng de verwijderlabel 'hinder' aan op het stuur.",
+                                                                                                                                        ja: "Gev. 2 De fiets staat verkeerd, maar kan wel worden verplaatst. De fiets moet worden verplaatst over een korte afstand op een plek waar de eigenaar hem terug kan vinden.",
+                                                                                                                                        nee: {
+                                                                                            vraag: "Gev.3 De fiets staat hinderlijk geparkeerd, de overtreder krijgt één uur de tijd om de fiets te verplaatsen.",
+                                                                                            informatie: "Op het verwijderlabel moet staan 'fiets geparkeerd buiten de parkeervoorzieningen'. Het vermeld de eindtijd, het tijdstip en de datum wanneer de fiets weggehaald moet worden. Het label moet aan het stuur van de fiets worden gehangen.",
+                                                                                        } 
                                                                                                                                     }
                                                                                                                                 },
                                                                                                                                 nee: {
                                                                                                                                     vraag: "art. 4.27 lid 1 d) APV Ontstaat er schade voor een gebruiker van het gebouw waartegen of waarvoor de fiets staat geparkeerd?", //art. 4.27 lid 1 d) APV
-                                                                                                                                    informatie: "Info 3.d",
+                                                                                                                                    informatie: "Geen extra informatie beschikbaar.",
                                                                                                                                     antwoorden: {
                                                                                                                                         ja: {
                                                                                                                                             vraag: "4. Kan de fiets over een korte afstand worden verplaatst?", //4
-                                                                                                                                            informatie: "Info 4",
+                                                                                                                                            informatie: "Dit kan als de fiets niet met een slot aan iets vast staat én op een plek geplaatst kan worden waar de eigenaar de fiets makkelijk terug kan vinden.",
                                                                                                                                             antwoorden: {
-                                                                                                                                                ja: "Gev. 2 De fiets staat verkeerd, maar kan worden verplaatst. De fiets moet worden verplaatst over korte afstand op een plek waar de eigenaar hem terug kan vinden.",
-                                                                                                                                                nee: "Gev.3 De fiets staat hinderlijk geparkeerd. De fiets krijgt een verwijderlabel met 'hinderlijk' erop. 'Op de verwijderlabel moet staan fiets geparkeerd buiten de parkeervoorzieningen'. Het vermeld de eindtijd, wanneer de fiets weggehaald moet worden (in uren en minuten) en de datum. Breng de verwijderlabel 'hinder' aan op het stuur.",
+                                                                                                                                                ja: "Gev. 2 De fiets staat verkeerd, maar kan wel worden verplaatst. De fiets moet worden verplaatst over een korte afstand op een plek waar de eigenaar hem terug kan vinden.",
+                                                                                                                                                nee: {
+                                                                                            vraag: "Gev.3 De fiets staat hinderlijk geparkeerd, de overtreder krijgt één uur de tijd om de fiets te verplaatsen.",
+                                                                                            informatie: "Op het verwijderlabel moet staan 'fiets geparkeerd buiten de parkeervoorzieningen'. Het vermeld de eindtijd, het tijdstip en de datum wanneer de fiets weggehaald moet worden. Het label moet aan het stuur van de fiets worden gehangen.",
+                                                                                        } 
                                                                                                                                             }
                                                                                                                                         },
-                                                                                                                                        nee: "Gev. 1 De fiets staat niet verkeerd. Er hoeft niet te worden gehandhaafd."
+                                                                                                                                        nee: "Gev. 1 Er hoeft niet te worden gehandhaafd. "
                                                                                                                                     }
                                                                                                                                 }
                                                                                                                             }
@@ -243,7 +282,7 @@
                         }
                     }
                 },
-                ja: "Gev. 1. De fiets staat niet verkeerd. Er hoeft niet te worden gehandhaafd.", //Gev. 1
+                ja: "Gev. 1. Er hoeft niet te worden gehandhaafd.", //Gev. 1
             }
         };
     
@@ -321,15 +360,16 @@
 
 <footer>
     <div class="contactgegevens">
-        <p>Contactgegevens <br> 
-        Algemeen Contact: 1 4 0 2 0 1 <br>
-        Adres: Wibautstraat 3b  <br>
-        1091 GH Turfbrug</p>
+        
         <p>Leidinggevende: 06-36273922 <br>
         Email: AfdelingLG@gemeenteturfburg.nl <br>
         ICT: ICT@gemeenteturfburg.nl
         </p>
-        <p>U kunt ons bellen op werkdagen van Ma-Vrij 08:30 tot 17:00 uur bellen via 1 4 0 2 0 1</p>
+        <p>  Algemeen telefoonnummer Gemeente Turfbrug: 14402501 <br> <br>
+            Adres <br>
+            Wibautstraat 3b  <br>
+            1091 GH Turfbrug</p>
+        
     </div>
 </footer>
  
