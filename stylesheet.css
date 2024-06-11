@@ -29,14 +29,17 @@ header {
     align-items: center;
     text-align: center;
     padding-top: 20px; 
+    padding-bottom: 50px;
 }
 
 footer {
     background-color: #808080;
-    color: black;
+    color: whitesmoke;
     text-align: center;
     padding: 20px;
     font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    font-size: 15px;
     flex-shrink: 0;
     margin-bottom: 0;
 }
@@ -45,14 +48,7 @@ footer {
     flex:1;
 }
 
-.language {
-    position: absolute;
-    top: 20px; 
-    right: 20px; 
-    margin:0;
-    text-decoration: underline;
-    color:#001dc3;
-}
+
 
 .header-content {
     position: relative;
@@ -90,11 +86,12 @@ header p:nth-child(3) {
 
         /* Welkomstekst*/
 .welkomsTekst {
-    padding: 16%;
-    padding-top: 2%;
+   padding-left: 10%;
+   padding-right: 10%;
     padding-bottom: 1%;
     text-align: center; 
-    font-size: 18px;
+    font-size: 15px;
+   
 }
 #Welkom2 {
     font-size: 15px;
@@ -107,13 +104,14 @@ header p:nth-child(3) {
     border: 5px solid #09781d;
     border-radius: 5px;
     background-color: #f9f9f9;
-    width: 600px;
+    width: 700px;
     height:200px;
     margin: 0 auto;
 }
 
 #beslisboom p { /* p bevat de vragen van de beslisboom */
     margin-bottom: 10px;
+    text-align: center;
 }
 
 #beslisboom ul { /* ul is de unorganised list */
@@ -159,7 +157,7 @@ header p:nth-child(3) {
             color: #fff;
             text-align: center;
             border-radius: 6px;
-            padding: 5px 0;
+            padding: 20px;
             position: absolute;
             z-index: 1;
             bottom: 125%; /* Plaats de tooltip boven de knop */
@@ -191,6 +189,7 @@ header p:nth-child(3) {
     align-items: center; 
     justify-content: center;
     margin-bottom: 10px; /* Ruimte onder elke vraag */
+    
 }
 
 .answer-container {
