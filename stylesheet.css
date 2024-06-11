@@ -246,7 +246,7 @@ header p:nth-child(3) {
         }
 
 .Kaart {
-    padding: 50px;
+    padding: 10%;
     display: flex;
     justify-content: center;
     align-items: center;
