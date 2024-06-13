@@ -153,8 +153,8 @@ header p:nth-child(3) {
         .tooltip {
             visibility: hidden; /* Verberg de tooltip standaard */
             width: 200px;
-            background-color: #555;
-            color: #fff;
+            background-color: #808080;
+            color: whitesmoke;
             text-align: center;
             border-radius: 6px;
             padding: 20px;
@@ -189,13 +189,14 @@ header p:nth-child(3) {
     align-items: center; 
     justify-content: center;
     margin-bottom: 10px; /* Ruimte onder elke vraag */
+    font-size: larger;
     
 }
 
 .answer-container {
     display: flex; 
     justify-content: center; /* Centreer de knoppen horizontaal */
-    gap: 10px; /* Ruimte tussen de knoppen */
+    gap: 30px; /* Ruimte tussen de knoppen */
     flex-wrap: wrap; /* Laat de knoppen op de volgende regel doorlopen als er geen ruimte meer is */
 }
 
